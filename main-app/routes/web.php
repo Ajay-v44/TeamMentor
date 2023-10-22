@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,7 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return config('app.env');
 });
+
+//Employee Routes
+
+Route::get('/employees',[EmployeeController::class,'index']);

@@ -31,14 +31,19 @@ class EmployeeController extends Controller
         //dumb and dive method displays the data recived through a form
     //   dd( $request->except('_token'));
     $data=$request->except('_token');
-    // Employee::create($data);
-    $employee=new Employee;
-    $employee->name=$data['name'];
-    $employee->email=$data['email'];
-    $employee->joining_date=$data['joining_date'];
-    $employee->salary=$data['salary'];
+    //Mass Assignment
+
+    Employee::create($data);
+
+    //Single row assignment
+    
+    // $employee=new Employee;
+    // $employee->name=$data['name'];
+    // $employee->email=$data['email'];
+    // $employee->joining_date=$data['joining_date'];
+    // $employee->salary=$data['salary'];
     // $employee->is_active=$data['is_active'];  
-    $employee->save();
+    // $employee->save();
 
 
     dd('success');

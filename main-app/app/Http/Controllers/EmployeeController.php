@@ -37,9 +37,7 @@ class EmployeeController extends Controller
     $employee->email=$data['email'];
     $employee->joining_date=$data['joining_date'];
     $employee->salary=$data['salary'];
-    $employee->is_active=$data['is_active'];  
-    $employee->created_at=$data['created_at'];
-    $employee->updated_at=$data['updated_at'];
+    // $employee->is_active=$data['is_active'];  
     $employee->save();
 
 

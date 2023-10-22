@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <strong>Employee List</strong>
-                <a href="/employees/create" class="btn btn-primary btn-xs float-end py-0">Create Employee</a>
+                <a href="{{route('employee-create')}}" class="btn btn-primary btn-xs float-end py-0">Create Employee</a>
                 <table class="table table-responsive table-bordered table-stripped" style="margin-top:10px;">
                     <thead>
                         <tr>

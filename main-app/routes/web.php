@@ -23,4 +23,5 @@ Route::get('/test', function () {
 
 //Employee Routes
 
-Route::get('/employees',[EmployeeController::class,'index']);
+Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee-create');

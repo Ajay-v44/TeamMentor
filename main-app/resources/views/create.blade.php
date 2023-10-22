@@ -3,7 +3,9 @@
 <div class="card">
     <div class="card-body">
         <p style="font-size:20px; font-weight:bold;">Create New Employee</p>
-        <form action="" class="was-validated" method="POST" novalidate>
+        <form action="{{ route('employees-store') }}" class="was-validated" method="POST" novalidate>
+            @csrf
+
             <div class="form-group has-validation">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="form-control" required>
@@ -27,7 +29,7 @@
             </div>
             <div class="form-group has-validation">
                 <label for="joining_salary">Joining salary</label>
-                <input type="number" name="joining_salary" id="joining_salary" class="form-control" required>
+                <input type="number" name="salary" id="joining_salary" class="form-control" required>
                 <span class="invalid-feedback">
                     <strong>Error</strong>
                 </span>

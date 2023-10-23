@@ -85,7 +85,8 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+       $employee= Employee :: find($id);
+        return view('edit',compact('employee'));
     }
 
     /**
@@ -93,7 +94,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        dd( $request->except('_token'));
     }
 
     /**

@@ -33,7 +33,7 @@ class EmployeeController extends Controller
             'name' => 'required',
             'email' =>'required|unique:employees,email|email',
             'joining_date'=>'required',
-            'salary'=>'required',
+            'salary'=>'required | numeric',
 
         ]);
         //dumb and dive method displays the data recived through a form

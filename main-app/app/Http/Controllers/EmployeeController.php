@@ -12,7 +12,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $employees=Employee::all();
+        return view('index',compact('employees'));
     }
 
     /**
@@ -34,10 +35,12 @@ class EmployeeController extends Controller
             'email' =>'required|unique:employees,email|email',
             'joining_date'=>'required',
             'salary'=>'required | numeric',
+            'is_active'=>'required ',
 
         ],[
             //Custom error message
-            'salary.required' => 'Please Enter Your Salary'
+            'salary.required' => 'Please Enter Your Salary',
+            'is_active.required'=>'Only Active Is Allowed'
         ]);
         //dumb and dive method displays the data recived through a form
     //   dd( $request->except('_token'));

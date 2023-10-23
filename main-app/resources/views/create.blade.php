@@ -54,7 +54,7 @@
                 <label for="is_active">Active</label><br>
                 <input type="checkbox" name="is_active" id="is_active" class="{{$errors->has('is_active')?'is-invalid':''}}" value="1" required {{old('is_active')=='1'?'checked':''}}>
                 <span class="invalid-feedback">
-                    <strong>Error</strong>
+                    <strong>{{$errors->first('is_active')}}</strong>
                 </span>
             </div>
             <button type="submit" class="btn btn-primary">Create Employee</button>

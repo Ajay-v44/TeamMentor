@@ -26,11 +26,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($employees as $key => $employee)
                         <tr>
-                            <td>1</td>
-                            <td>Ajay</td>
-                            <td>ajay@gmail.com</td>
-                            <td>2023-5-12 </td>
+                            <td>{{$key+1}} </td>
+                            <td>{{$employee->name }}</td>
+                            <td>{{$employee->email }}</td>
+                            <td>{{$employee->Joining_date }}</td>
                             <td><span type="button" class="btn btn-success btn-xs py-0">Active</span></td>
                             <td>
                                 <a href="/employee/1" class="btn btn-primary btn-xs py-0">Show</a>
@@ -38,18 +39,7 @@
                                 <button type="submit" class="btn btn-danger btn-xs py-0">Delete</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>David</td>
-                            <td>david@aj.com</td>
-                            <td>2022-7-21 </td>
-                            <td><span type="button" class="btn btn-success btn-xs py-0">Active</span></td>
-                            <td>
-                                <a href="/employee/2" class="btn btn-primary btn-xs py-0">Show</a>
-                                <a href="/employee/2/edit" class="btn btn-warning btn-xs py-0">Edit</a>
-                                <button type="submit" class="btn btn-danger btn-xs py-0">Delete</button>
-                            </td>
-                        </tr>
+                        @endforeach  
                     </tbody>
                 </table>
 

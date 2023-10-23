@@ -35,6 +35,9 @@ class EmployeeController extends Controller
             'joining_date'=>'required',
             'salary'=>'required | numeric',
 
+        ],[
+            //Custom error message
+            'salary.required' => 'Please Enter Your Salary'
         ]);
         //dumb and dive method displays the data recived through a form
     //   dd( $request->except('_token'));

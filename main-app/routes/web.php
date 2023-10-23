@@ -23,6 +23,6 @@ Route::get('/test', function () {
 
 //Employee Routes
 
-Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employees', [EmployeeController::class, 'index'])->name('employee-index');
 Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee-create');
 Route::post('/employees/store', [EmployeeController::class, 'store'])->name('employees-store');

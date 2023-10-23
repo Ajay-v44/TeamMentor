@@ -46,7 +46,9 @@ class EmployeeController extends Controller
     // $employee->save();
 
 
-    dd('success');
+    // dd('success');
+
+    return redirect()->route('employee-index')->withMessage('Employee has been created successfully');
     }
 
     /**

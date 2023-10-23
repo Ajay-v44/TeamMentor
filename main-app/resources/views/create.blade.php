@@ -1,5 +1,12 @@
 @extends('layout.app')
 @section('content')
+@if($errors->any())
+@foreach($errors->all() as $error)
+<div class="alert alert-danger">
+    {{$error}}
+</div>
+@endforeach
+@endif
 <div class="card">
     <div class="card-body">
         <p style="font-size:20px; font-weight:bold;">Create New Employee</p>

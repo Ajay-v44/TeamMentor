@@ -6,6 +6,7 @@
 
 </div>
 @endif
+<a class="text-warning fw-bold" href="{{route('employee-index')}}">Back To List</a>
 <div class="card">
     <div class="card-body">
         <p style="font-size:20px; font-weight:bold;">Update Employee</p>

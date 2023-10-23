@@ -85,16 +85,33 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
-       $employee= Employee :: find($id);
-        return view('edit',compact('employee'));
+        $employee = Employee::find($id);
+        return view('edit', compact('employee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Employee $employee)
     {
-        dd( $request->except('_token'));
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:employees,email,' . $employee->id . ' |email',
+            'joining_date' => 'required',
+            'salary' => 'required | numeric',
+            'is_active' => 'required ',
+
+        ], [
+            //Custom error message
+            'salary.required' => 'Please Enter Your Salary',
+            'is_active.required' => 'Only Active Is Allowed'
+        ]);
+        $data = $request->all();
+
+        // $employee=Employee::find($id);
+        $employee->update($data);
+        return redirect()->route('employee-edit', $employee->id)->withSuccess('Employee details updated successfully');
     }
 
     /**

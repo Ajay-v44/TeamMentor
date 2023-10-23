@@ -1,5 +1,11 @@
 @extends('layout.app')
 @section('content')
+@if(session()->has('success'))
+<div class="alert alert-success">
+{{ session()->get('success');}}
+
+</div>
+@endif
 <div class="card">
     <div class="card-body">
         <p style="font-size:20px; font-weight:bold;">Update Employee</p>
@@ -35,7 +41,7 @@
             </div>
             <div class="form-group has-validation">
                 <label for="joining_salary">Joining salary</label>
-                <input type="number" name="joining_salary" id="joining_salary" class="form-control {{$errors->has('salary')?'is-invalid':''}}" value="{{$employee->salary}}" required>
+                <input type="number" name="salary" id="joining_salary" class="form-control {{$errors->has('salary')?'is-invalid':''}}" value="{{$employee->salary}}" required>
                 @if($errors->has('salary'))
                 <span class="invalid-feedback">
                     <strong>{{$errors->first('salary')}}</strong>

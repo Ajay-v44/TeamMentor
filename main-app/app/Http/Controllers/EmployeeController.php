@@ -28,6 +28,14 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'email' =>'required|unique:employees,email|email',
+            'joining_date'=>'required',
+            'salary'=>'required',
+
+        ]);
         //dumb and dive method displays the data recived through a form
     //   dd( $request->except('_token'));
     $data=$request->except('_token');

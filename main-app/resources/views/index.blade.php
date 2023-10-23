@@ -9,7 +9,7 @@
 @endif
 <div class="row">
     <div class="col-2"></div>
-    <div class="col-8">
+    <div class="col-md-8 col-sm-6">
         <div class="card">
             <div class="card-body">
                 <strong>Employee List</strong>
@@ -34,10 +34,19 @@
                             <td>{{$employee->Joining_date }}</td>
                             <td><span type="button" class="btn btn-success btn-xs py-0">Active</span></td>
                             <td>
-                                <a href="{{route('employee-show',$employee->id)}}" class="btn btn-primary btn-xs py-0">Show</a>
-                                <a href="{{route('employee-edit',$employee->id)}}" class="btn btn-warning btn-xs py-0">Edit</a>
-                                <button type="submit" class="btn btn-danger btn-xs py-0">Delete</button>
+                                <div class="d-flex justify-content-evenly align-items-center">
+
+                                <a href="{{route('employee-show',$employee->id)}}" class="btn btn-primary btn-xs py-0 ">Show</a>
+                                <a href="{{route('employee-edit',$employee->id)}}" class="btn btn-warning btn-xs py-0 ">Edit</a>
+
+                                <form action="{{route('employee-destroy',$employee->id)}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-xs py-0 ">Delete</button>
+                                </form>
+                            </div>
                             </td>
+                           
                         </tr>
                         @endforeach  
                     </tbody>

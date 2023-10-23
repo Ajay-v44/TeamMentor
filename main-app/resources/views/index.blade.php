@@ -34,15 +34,16 @@
                             <td>{{$employee->Joining_date }}</td>
                             <td><span type="button" class="btn btn-success btn-xs py-0">Active</span></td>
                             <td>
-                                <a href="/employee/1" class="btn btn-primary btn-xs py-0">Show</a>
-                                <a href="/employee/1/edit" class="btn btn-warning btn-xs py-0">Edit</a>
+                                <a href="{{route('employee-show',$employee->id)}}" class="btn btn-primary btn-xs py-0">Show</a>
+                                <a href="{{route('employee-edit',$employee->id)}}" class="btn btn-warning btn-xs py-0">Edit</a>
                                 <button type="submit" class="btn btn-danger btn-xs py-0">Delete</button>
                             </td>
                         </tr>
                         @endforeach  
                     </tbody>
                 </table>
-
+                {{-- pagination --}}
+                {{$employees->links()}}
             </div>
         </div>
     </div>

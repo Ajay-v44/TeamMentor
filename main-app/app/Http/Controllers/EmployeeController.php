@@ -12,8 +12,15 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees=Employee::all();
-        return view('index',compact('employees'));
+
+        //to get all data
+        // $employees=Employee::all();
+
+
+        //to order by id in descending order
+        $employees = Employee::orderBy('id', 'desc')->paginate(2);
+
+        return view('index', compact('employees'));
     }
 
     /**
@@ -32,37 +39,37 @@ class EmployeeController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'email' =>'required|unique:employees,email|email',
-            'joining_date'=>'required',
-            'salary'=>'required | numeric',
-            'is_active'=>'required ',
+            'email' => 'required|unique:employees,email|email',
+            'joining_date' => 'required',
+            'salary' => 'required | numeric',
+            'is_active' => 'required ',
 
-        ],[
+        ], [
             //Custom error message
             'salary.required' => 'Please Enter Your Salary',
-            'is_active.required'=>'Only Active Is Allowed'
+            'is_active.required' => 'Only Active Is Allowed'
         ]);
         //dumb and dive method displays the data recived through a form
-    //   dd( $request->except('_token'));
-    $data=$request->except('_token');
-    //Mass Assignment
+        //   dd( $request->except('_token'));
+        $data = $request->except('_token');
+        //Mass Assignment
 
-    Employee::create($data);
+        Employee::create($data);
 
-    //Single row assignment
-    
-    // $employee=new Employee;
-    // $employee->name=$data['name'];
-    // $employee->email=$data['email'];
-    // $employee->joining_date=$data['joining_date'];
-    // $employee->salary=$data['salary'];
-    // $employee->is_active=$data['is_active'];  
-    // $employee->save();
+        //Single row assignment
+
+        // $employee=new Employee;
+        // $employee->name=$data['name'];
+        // $employee->email=$data['email'];
+        // $employee->joining_date=$data['joining_date'];
+        // $employee->salary=$data['salary'];
+        // $employee->is_active=$data['is_active'];  
+        // $employee->save();
 
 
-    // dd('success');
+        // dd('success');
 
-    return redirect()->route('employee-index')->withMessage('Employee has been created successfully');
+        return redirect()->route('employee-index')->withMessage('Employee has been created successfully');
     }
 
     /**

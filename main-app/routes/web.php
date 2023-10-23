@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [EmployeeController::class, 'index'])->name('employee-index');
 Route::get('/test', function () {
     return config('app.env');
 });
@@ -26,3 +24,5 @@ Route::get('/test', function () {
 Route::get('/employees', [EmployeeController::class, 'index'])->name('employee-index');
 Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee-create');
 Route::post('/employees/store', [EmployeeController::class, 'store'])->name('employees-store');
+Route::get('/employees/{id}',[EmployeeController::class,'show'])->name('employee-show');
+Route::get('/employees/{id}/edit',[EmployeeController::class,'edit'])->name('employee-edit');
